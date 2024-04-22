@@ -3,91 +3,99 @@ const React = require('react');
 const { useState, useEffect } = React;
 const { createRoot } = require('react-dom/client');
 
-const handleDomo = (e, onDomoAdded) => {
+const handleWorkout = (e, onWorkoutAdded) => {
     e.preventDefault();
     helper.hideError();
 
-    const name = e.target.querySelector('#domoName').value;
-    const age = e.target.querySelector('#domoAge').value;
-    const color = e.target.querySelector('#domoColor').value;
+    const name = e.target.querySelector('#workoutName').value;
+    const exercise = e.target.querySelector('#workoutExercise').value;
+    const set = e.target.querySelector('#workoutSet').value;
+    const reps = e.target.querySelector('#workoutReps').value;
+    const weight = e.target.querySelector('#workoutWeight').value;
 
-    if(!name || !age || !color) {
+    if(!name || !exercise || !set || !reps) {
         helper.handleError('All fields are required');
         return false;
     }
 
-    helper.sendPost(e.target.action, {name, age, color}, onDomoAdded);
+    helper.sendPost(e.target.action, {name, exercise, set, reps, weight}, onWorkoutAdded);
     return false;
 }
 
-const DomoForm = (props) => {
+const WorkoutForm = (props) => {
     return(
-        <form id="domoForm"
-            onSubmit={(e) => handleDomo(e, props.triggerReload)}
-            name="domoForm"
+        <form id="workoutForm"
+            onSubmit={(e) => handleWorkout(e, props.triggerReload)}
+            name="workoutForm"
             action="/maker"
             method="POST"
-            className="domoForm"
+            className="workoutForm"
         >
             <label htmlFor="name">Name: </label>
-            <input id="domoName" type="text" name="name" placeholder="Domo Name" />
-            <label htmlFor="age">Age: </label>
-            <input id="domoAge" type="number" min="0" name="age" />
-            <label htmlFor="color">Color: </label>
-            <input id="domoColor" type="text" name="color" placeholder="Domo Color" /> 
-            <input className="makeDomoSubmit" type="submit" value="Make Domo" />
+            <input id="workoutName" type="text" name="name" placeholder="Workout Name" />
+            <label htmlFor="exercise">Exercise: </label>
+            <input id="workoutExercise" type="text" name="exercise" placeholder="Workout Exercise" />
+            <label htmlFor="set">Set: </label>
+            <input id="workoutSet" type="number" min="0" name="set" />
+            <label htmlFor="reps">Reps: </label>
+            <input id="workoutReps" type="number" min="0" name="reps"/> 
+            <label htmlFor="reps">Weight: </label>
+            <input id="workoutWeight" type="text" min="0" name="weight" placeholder="Workout Weight"/> 
+            <input className="makeWorkoutSubmit" type="submit" value="Make Workout" />
         </form>
     );
 };
 
-const DomoList = (props) => {
-    const [domos, setDomos] = useState(props.domos);
+const WorkoutList = (props) => {
+    const [workouts, setWorkouts] = useState(props.workouts);
 
     useEffect(() => {
-        const loadDomosFromServer = async () => {
-            const response = await fetch('/getDomos');
+        const loadWorkoutsFromServer = async () => {
+            const response = await fetch('/getWorkouts');
             const data = await response.json();
-            setDomos(data.domos);
+            setWorkouts(data.workouts);
         };
-        loadDomosFromServer();
-    }, [props.reloadDomos]);
+        loadWorkoutsFromServer();
+    }, [props.reloadWorkouts]);
 
-    if(domos.length === 0) {
+    if(workouts.length === 0) {
         return (
-            <div className="domoList">
-                <h3 className="emptyDomo">No Domos Yet!</h3>
+            <div className="workoutList">
+                <h3 className="emptyWorkout">No Workouts Yet!</h3>
             </div>
         );
     }
 
-    const domoNodes = domos.map(domo => {
+    const workoutNodes = workouts.map(workout => {
         return (
-            <div key={domo.id} className="domo">
-                <img src="/assets/img/domoface.jpeg" alt="domo face" className="domoFace" />
-                <h3 className="domoName">Name: {domo.name}</h3>
-                <h3 className="domoAge">Age: {domo.age}</h3>
-                <h3 className="domoColor">Color: {domo.color}</h3>
+            <div key={workout.id} className="workout">
+                <h3 className="workoutName">Workout: {workout.name}</h3>
+                <h3 className="workoutName">Exercise: {workout.exercise}</h3>                
+                <h3 className="workoutSet">Set: {workout.set}</h3>
+                <h3 className="workoutReps">Reps: {workout.reps}</h3>
+                <h3 className="workoutWeight">Weight: {workout.weight}</h3>
             </div>
+            
         );
     });
 
     return (
-        <div className="domoList">
-            {domoNodes}
+        <div className="workoutList">
+            {workoutNodes}
         </div>
     );
 };
 
 const App = () => {
-    const [reloadDomos, setReloadDomos] = useState(false);
+    const [reloadWorkouts, setReloadWorkouts] = useState(false);
 
     return (
         <div>
-            <div id="makeDomo">
-                <DomoForm triggerReload={() => setReloadDomos(!reloadDomos)} />
+            <div id="makeWorkout">
+                <WorkoutForm triggerReload={() => setReloadWorkouts(!reloadWorkouts)} />
             </div>
-            <div id="domos">
-                <DomoList domos={[]} reloadDomos={reloadDomos} />
+            <div id="workouts">
+                <WorkoutList workouts={[]} reloadWorkouts={reloadWorkouts} />
             </div>
         </div>
     );
