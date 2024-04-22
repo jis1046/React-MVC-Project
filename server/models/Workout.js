@@ -6,39 +6,39 @@ const setName = (name) => _.escape(name).trim();
 const WorkoutSchema = new mongoose.Schema({
   name: [
     {
-    type: String,
-    required: true,
-    trim: true,
-    set: setName,
-
-    exercise: [
-      {
       type: String,
       required: true,
       trim: true,
       set: setName,
-  
-      set: {
-        type: Number,
-        min: 0,
-        required: true,
-      },
-      reps: {
-        type: Number,
-        min: 0,
-        required: true,
-      },
-      weight: {
-        type: String,
-        trim: true,
-      },
-  
-    }
+
+      exercise: [
+        {
+          type: String,
+          required: true,
+          trim: true,
+          set: setName,
+
+          sets: {
+            type: Number,
+            min: 0,
+            required: true,
+          },
+          reps: {
+            type: Number,
+            min: 0,
+            required: true,
+          },
+          weight: {
+            type: String,
+            trim: true,
+          },
+
+        },
+      ],
+    },
   ],
-  }
-],
-  
- /* set: {
+
+  /* set: {
     type: Number,
     min: 0,
     required: true,
@@ -65,7 +65,7 @@ const WorkoutSchema = new mongoose.Schema({
 
 WorkoutSchema.statics.toAPI = (doc) => ({
   name: doc.name,
-  set: doc.set,
+  sets: doc.sets,
   reps: doc.reps,
   weight: doc.weight,
 });
