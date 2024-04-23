@@ -4,20 +4,22 @@ const _ = require('underscore');
 const setName = (name) => _.escape(name).trim();
 
 const WorkoutSchema = new mongoose.Schema({
-  name: [
+  name:
     {
       type: String,
       required: true,
       trim: true,
       set: setName,
+    },
 
-      exercise: [
-        {
-          type: String,
-          required: true,
-          trim: true,
-          set: setName,
-
+      exercises: { 
+        type: [{
+          name: {
+            type: String,
+            required: true,
+            trim: true,
+            set: setName,
+          },
           sets: {
             type: Number,
             min: 0,
@@ -32,11 +34,9 @@ const WorkoutSchema = new mongoose.Schema({
             type: String,
             trim: true,
           },
-
-        },
-      ],
+        }],
+        default: [],
     },
-  ],
 
   /* set: {
     type: Number,

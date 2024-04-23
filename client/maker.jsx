@@ -8,17 +8,17 @@ const handleWorkout = (e, onWorkoutAdded) => {
     helper.hideError();
 
     const name = e.target.querySelector('#workoutName').value;
-    const exercise = e.target.querySelector('#workoutExercise').value;
-    const set = e.target.querySelector('#workoutSet').value;
+    const exerciseName = e.target.querySelector('#workoutExercise').value;
+    const sets = e.target.querySelector('#workoutSet').value;
     const reps = e.target.querySelector('#workoutReps').value;
     const weight = e.target.querySelector('#workoutWeight').value;
 
-    if(!name || !exercise || !set || !reps) {
+    if(!name || !exerciseName || !sets || !reps) {
         helper.handleError('All fields are required');
         return false;
     }
 
-    helper.sendPost(e.target.action, {name, exercise, set, reps, weight}, onWorkoutAdded);
+    helper.sendPost(e.target.action, {name, exerciseName, sets, reps, weight}, onWorkoutAdded);
     return false;
 }
 
@@ -33,8 +33,8 @@ const WorkoutForm = (props) => {
         >
             <label htmlFor="name">Name: </label>
             <input id="workoutName" type="text" name="name" placeholder="Workout Name" />
-            <label htmlFor="exercise">Exercise: </label>
-            <input id="workoutExercise" type="text" name="exercise" placeholder="Workout Exercise" />
+            <label htmlFor="exercises">Exercise: </label>
+            <input id="workoutExercise" type="text" name="exercises" placeholder="Workout Exercise" />
             <label htmlFor="set">Set: </label>
             <input id="workoutSet" type="number" min="0" name="set" />
             <label htmlFor="reps">Reps: </label>
@@ -67,13 +67,20 @@ const WorkoutList = (props) => {
     }
 
     const workoutNodes = workouts.map(workout => {
+        console.dir(workout);
         return (
             <div key={workout.id} className="workout">
                 <h3 className="workoutName">Workout: {workout.name}</h3>
-                <h3 className="workoutName">Exercise: {workout.exercise}</h3>                
-                <h3 className="workoutSet">Set: {workout.set}</h3>
-                <h3 className="workoutReps">Reps: {workout.reps}</h3>
-                <h3 className="workoutWeight">Weight: {workout.weight}</h3>
+                {workout.exercises.map( exercise => (
+
+                <div key={exercise.id} className="workoutExercise">
+                    <h3 className="workoutName">Exercise: {exercise.name}</h3>                
+                    <h3 className="workoutSet">Set: {exercise.sets}</h3>
+                    <h3 className="workoutReps">Reps: {exercise.reps}</h3>
+                    <h3 className="workoutWeight">Weight: {exercise.weight}</h3>
+                </div>
+                ))}
+                
             </div>
             
         );
