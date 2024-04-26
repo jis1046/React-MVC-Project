@@ -23,12 +23,16 @@ const makeWorkout = async (req, res) => {
   };
 
   try {
-    const doc = await WorkoutModel.findOneAndUpdate(
+    await WorkoutModel.findOneAndUpdate(
       workoutData,
-      { $push: { exercises: exercise }},
-      { upsert: true, new: true,
-      setDefaultsOnInsert: true }
+      { $push: { exercises: exercise } },
+      {
+        upsert: true,
+        new: true,
+        setDefaultsOnInsert: true,
+      },
     );
+    return res.status(201).json({message: 'Success'});
   } catch (err) {
     console.log(err);
     if (err.code === 11000) {

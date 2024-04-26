@@ -300,3 +300,9 @@ h3.workoutReps {
 .workout:last-child {
     margin-bottom:10px;
 }
+
+#editform {
+    padding-right: 50px;
+    text-align: center;
+    font-size: large;
+}

@@ -15,6 +15,8 @@ const router = (app) => {
   app.get('/maker', mid.requiresLogin, controllers.Workout.makerPage);
   app.post('/maker', mid.requiresLogin, controllers.Workout.makeWorkout);
 
+  app.get('/channel', mid.requiresLogin,controllers.Channel.channelPage);
+
   app.post('/changePassword', controllers.Account.passwordChange);
 
   app.get('/', mid.requireSecure, mid.requiresLogout, controllers.Account.loginPage);

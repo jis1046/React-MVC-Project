@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Channel</title>
+    <link rel="stylesheet" type="text/css" href="/assets/style.css"/>
+</head>
+<body>
+    <nav><a href="/login"></a>
+    <div class="navlink"><a href="/logout">Log out</a></div>
+    <div class="navlink"><a href="/maker">Workout</a></div>
+
+    <section id = "channel">
+        <form id="editForm">
+            <input id="editBox" type="text" />
+             <select name="channel" id="channelSelect">
+                <option value="general">General</option>
+                <option value="memes">Memes</option>
+             </select>
+             <input type="submit" />
+        </form>
+
+    </section>
+
+    
+
+
+    <h3><span id="errorMessage"></span></h3>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/assets/appBundle.js"></script>
+  </nav>
+</body>
+</html>

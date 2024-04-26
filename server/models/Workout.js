@@ -12,31 +12,31 @@ const WorkoutSchema = new mongoose.Schema({
       set: setName,
     },
 
-      exercises: { 
-        type: [{
-          name: {
-            type: String,
-            required: true,
-            trim: true,
-            set: setName,
-          },
-          sets: {
-            type: Number,
-            min: 0,
-            required: true,
-          },
-          reps: {
-            type: Number,
-            min: 0,
-            required: true,
-          },
-          weight: {
-            type: String,
-            trim: true,
-          },
-        }],
-        default: [],
-    },
+  exercises: {
+    type: [{
+      name: {
+        type: String,
+        required: true,
+        trim: true,
+        set: setName,
+      },
+      sets: {
+        type: Number,
+        min: 0,
+        required: true,
+      },
+      reps: {
+        type: Number,
+        min: 0,
+        required: true,
+      },
+      weight: {
+        type: String,
+        trim: true,
+      },
+    }],
+    default: [],
+  },
 
   /* set: {
     type: Number,
