@@ -49,6 +49,10 @@ const AccountSchema = new mongoose.Schema({
       message: 'Invalid email address format',
     },
   },
+  premium: {
+    type: Boolean,
+    default: false,
+  }
 });
 
 // Converts a doc to something we can store in redis later on.

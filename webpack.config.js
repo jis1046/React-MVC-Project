@@ -1,9 +1,11 @@
+const { channel } = require('diagnostics_channel');
 const path = require('path');
 
 module.exports = {
     entry: {
         app: './client/maker.jsx',
         login: './client/login.jsx',
+        channel: './client/channel.jsx',
     },
     module: {
         rules: [

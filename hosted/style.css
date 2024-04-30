@@ -306,3 +306,19 @@ h3.workoutReps {
     text-align: center;
     font-size: large;
 }
+
+#channelSelect{
+    margin-top: 500px;
+}
+
+#messages{
+    margin-top: 50px;
+}
+
+#editForm{
+    margin-top: 50px;
+}
+
+#editBox{
+    margin-top: 50px;
+}
