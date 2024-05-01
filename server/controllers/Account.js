@@ -101,10 +101,17 @@ const signup = async (req, res) => {
   }
 };
 
+const notFound = (req, res) => {
+  res.status(404).render('notFound', {
+    page: req.url,
+  });
+};
+
 module.exports = {
   loginPage,
   logout,
   login,
   signup,
   passwordChange,
+  notFound,
 };

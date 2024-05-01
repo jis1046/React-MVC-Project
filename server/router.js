@@ -20,6 +20,8 @@ const router = (app) => {
 
   app.post('/changePassword', controllers.Account.passwordChange);
 
+  app.get('/*', controllers.Account.notFound);
+
   app.get('/', mid.requireSecure, mid.requiresLogout, controllers.Account.loginPage);
 };
 
