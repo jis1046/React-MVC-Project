@@ -70,6 +70,10 @@ const handlePasswordChange = (e) => {
 
 const LoginWindow = (props) => {
     return (
+        <div id = 'loginDiv'>
+         <div id='left-column'>
+
+         </div>
         <form id="loginForm"
         name="loginForm"
         onSubmit={handleLogin}
@@ -77,6 +81,7 @@ const LoginWindow = (props) => {
         method="POST"
         className="mainForm"
     >
+        
         <label htmlFor="username">Username: </label>
         <input id="user" type="text" name="username" placeholder="username" />
         <label htmlFor="pass">Password: </label>
@@ -90,12 +95,14 @@ const LoginWindow = (props) => {
             }
         } /> 
     </form>
+    </div>
 
     );
 };
 
 const SignupWindow = (props) => {
     return (
+        <div id = 'loginDiv'>
         <form id="signupForm"
             name="signupForm"
             onSubmit={handleSignup}
@@ -113,11 +120,13 @@ const SignupWindow = (props) => {
             <input id="email" type="text" name="email" placeholder="email" />
             <input className="formSubmit" type="submit" value="Sign up" />
         </form>
+        </div>
     );
 };
 
 const ChangePasswordWindow = (props) => {
     return (
+        <div id = 'loginDiv'>
         <form id="changePasswordForm"
             name="changePasswordForm"
             onSubmit={handlePasswordChange}
@@ -133,7 +142,7 @@ const ChangePasswordWindow = (props) => {
         <input id="pass2" type="password" name="pass2" placeholder=" retype password" />
         <input className="formSubmit" type="submit" value="Enter" />
         </form>
-
+        </div>
         
     );
 };

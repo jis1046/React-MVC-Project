@@ -55,7 +55,7 @@ redisClient.connect().then(() => {
   app.set('views', `${__dirname}/../views`);
 
   router(app);
-  
+
   const server = socketSetup(app);
 
   server.listen(port, (err) => {

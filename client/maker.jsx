@@ -35,11 +35,11 @@ const WorkoutForm = (props) => {
             <input id="workoutName" type="text" name="name" placeholder="Workout Name" />
             <label htmlFor="exercises">Exercise: </label>
             <input id="workoutExercise" type="text" name="exercises" placeholder="Workout Exercise" />
-            <label htmlFor="set">Set: </label>
+            <label id = "labelSet" htmlFor="set">Set: </label>
             <input id="workoutSet" type="number" min="0" name="set" />
-            <label htmlFor="reps">Reps: </label>
+            <label id = "labelReps" htmlFor="reps">Reps: </label>
             <input id="workoutReps" type="number" min="0" name="reps"/> 
-            <label htmlFor="reps">Weight: </label>
+            <label id = "labelWeight" htmlFor="reps">Weight: </label>
             <input id="workoutWeight" type="text" min="0" name="weight" placeholder="Workout Weight"/> 
             <input className="makeWorkoutSubmit" type="submit" value="Make Workout" />
         </form>

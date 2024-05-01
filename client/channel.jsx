@@ -10,6 +10,7 @@ const ChatApp = () => {
     const [messages, setMessages] = useState([]);
     const [currentChannel, setCurrentChannel] = useState('general');
     const [messageInput, setMessageInput] = useState('');
+    const [premium, setPremium] = useState(false);
 
     // Establish socket connection
     const socket = io();
@@ -42,16 +43,8 @@ const ChatApp = () => {
     const handlePremium = (e) => {
         e.preventDefault();
         helper.hideError();
-
-        const premium = e.target.querySelector('#premium').value
-
-        if(premium == false)
-        {
-            helper.sendPost(e.target.action, {premium: true});
-        }
-
-        
-
+        helper.sendPost('/premium', {premium: true});
+        setPremium(true);
         return false;
     }
     
@@ -65,13 +58,15 @@ const ChatApp = () => {
             >
                 <option value="general">General</option>
                 <option value="channel1">Workout</option>
-               {/* <option value="channel2">DM</option> */}
+                {premium && <option value="channel2">DM</option>}
+                
             </select>
-            <div id="messages">
-                {messages.map((msg, index) => (
-                    <div key={index}>{msg}</div>
-                ))}
-            </div>
+            <input
+                    type="text"
+                    id="editBox"
+                    value={messageInput}
+                    onChange={(e) => setMessageInput(e.target.value)}
+                />
             <form
                 id="editForm"
                 onSubmit={(e) => {
@@ -79,16 +74,15 @@ const ChatApp = () => {
                     sendMessage();
                 }}
             >
-                <input
-                    type="text"
-                    id="editBox"
-                    value={messageInput}
-                    onChange={(e) => setMessageInput(e.target.value)}
-                />
-                <button type="submit">Send</button>
+                <button id="messageSend" type="submit">Send</button>
             </form>
 
             <button onClick={handlePremium} id="premium" type='button'>Premium</button>
+            <div id="messages">
+                {messages.map((msg, index) => (
+                    <div key={index}>{msg}</div>
+                ))}
+            </div>
         </div>
     );
 };

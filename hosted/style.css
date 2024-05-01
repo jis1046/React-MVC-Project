@@ -17,7 +17,8 @@ html, body {
 nav {
     width: 100%;
     height: 50px;
-    background-color: #55acee;
+    background-color: #00823a;
+    border: 4px solid black;
 }
 
 nav:nth-child(1) {
@@ -38,26 +39,28 @@ nav:nth-child(1) {
     text-decoration: none;
     padding: 5px;
     border-radius: 4px;
-    background-color: #55acee;
+    background-color: #00823a;
     transition: background-color 0.4s ease;
 }
 
 .navlink a:hover {
     transition: background-color 0.8s ease;
-    background-color: #66bdff;
+    background-color: #25fc86;
+    color: black;
 }
 
 .workoutForm {
-    border: 2px solid #338acc;
-    height: 200px;
-    width: 1200px;
+    border: 2px solid black;
+    height: 100px;
+    width: 1350px;
     margin-top:50px;
     padding-top:10px;
-    margin-left: 350px;
-    background-color: #55acee;
+    margin-left: 300px;
+    background-color: #00823a;
     border-bottom-right-radius: 4px;
     border-top-right-radius: 4px;
 }
+
 
 .workoutForm label {
     display: inline-block;
@@ -72,31 +75,22 @@ nav:nth-child(1) {
     float:left;
 }
 
-.left-column {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    color: #55acee;
-  }
-  
-  .right-column {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    color: #55acee;
-  }
+
 
 
 .makeWorkoutSubmit {
     transition: background-color 0.4s ease;
-    display: inline;
     width: 150px;
-    background-color: #55acee;
+    background-color: #40ce80;
     border-radius: 2px;
+    border-color: #5bdd95;
+    padding: 3px 0px;
     color: white;
     text-decoration: none;
+    border-radius: 10px;
+    border: 2px solid black;
+
+    
 }
 
 .makeWorkoutSubmit:link, .makeWorkoutSubmit:visited, .makeWorkoutSubmit:hover, .makeWorkoutSubmit:active {
@@ -105,7 +99,9 @@ nav:nth-child(1) {
 
 .makeWorkoutSubmit:hover {
     transition: background-color 0.4s ease;
-    background-color: #338acc;
+    background-color: #25fc86;
+    color: black;
+
 }
 
 .mainForm {
@@ -122,10 +118,12 @@ nav:nth-child(1) {
 
 .mainForm label {
     display: inline-block;
-    width: 100px;
+    width: 240px;
     margin-right: 10px;
+    margin-top: 20px;
     text-align: right;
     font-size: 1.2em;
+    color: white;
 }
 
 #changePasswordSubmit {
@@ -136,17 +134,27 @@ nav:nth-child(1) {
     margin-top: 14px;
     font-size: 1.2em;
     width: 200px;
-    background-color: #55acee;
-    border-radius: 2px;
-    border-color: #66acee;
+    background-color: #40ce80;
+    border-radius: 10px;
+    border-color: #5bdd95;
     padding: 3px 0px;
     color: white;
     text-decoration: none;
+    border: 2px solid black;
 }
 
 #changePasswordSubmit:hover {
-    transition: background-color 0.4s ease;
-    background-color: #338acc;
+    transition: background-color 0.8s ease;
+    background-color: #25fc86;
+    color: black;
+ 
+}
+
+#loginDiv {
+    background-color: #00823a;
+    height: 100%;
+    width: 1200px;
+    margin-left: 350px;
 }
 
 .formSubmit {
@@ -157,12 +165,14 @@ nav:nth-child(1) {
     margin-top: 14px;
     font-size: 1.2em;
     width: 100px;
-    background-color: #55acee;
+    background-color: #40ce80;
     border-radius: 2px;
-    border-color: #66acee;
+    border-color: #5bdd95;
     padding: 3px 0px;
     color: white;
     text-decoration: none;
+    border-radius: 10px;
+    border: 2px solid black;
 }
 
 .formSubmit:link, .formSubmit:visited, .formSubmit:hover, .formSubmit:active {
@@ -170,20 +180,21 @@ nav:nth-child(1) {
 }
 
 .formSubmit:hover {
-    transition: background-color 0.4s ease;
-    background-color: #338acc;
+    transition: background-color 0.8s ease;
+    background-color: #25fc86;
+    color: black;
 }
 
 #user, #pass, #pass2, #email {
     text-align: center;
     font-size: 1.1em;
-    width: 180px;
-    border-radius: 6px;
+    width: 380px;
+    border-radius: 60px;
 }
 
 #user:focus, #pass:focus, #pass2:focus, #email:focus {
     outline: none;
-    box-shadow: 0px 0px 1px 1px #55acee;
+    box-shadow: 0px 0px 1px 1px #2e7f52;
 }
 
 .hidden {
@@ -231,34 +242,22 @@ nav:nth-child(1) {
     transform: rotate(330deg);
 }
 
-#workouts {
-    width: 55%;
-    min-width: 400px;
-    border: 2px solid #55acee;
-    border-radius: 4px;
-    margin: 0 auto;
-    margin-top: 100px;
-}
 
 .workout {
-    width: 95%;
+    width: 1000px;
     margin: 0 auto;
     margin-top: 2px;
-    margin-bottom: 2px;
-    border: 2px solid #55acee;
+    margin-bottom: 20px;
+    border: 2px solid black;
     border-radius: 4px;
-    background-color: #55acee;
+    background-color: #00823a;
     padding: 10px;
     min-height:60px;
     overflow: hidden;
+    color: white;
 }
 
-.workout:hover {
-    transition: border-color 0.2s ease-out;
-    border-color: rgba(255,255,255, 0.8);
-    transition: background-color 2.6s ease-out;
-    background-color: #66bfff;
-}
+
 
 h3.emptyWorkout {
     width: 400px;
@@ -269,27 +268,36 @@ h3.emptyWorkout {
 }
 
 h3.workoutName {
-    float:left;
+    text-align: center;
     width: 200px;
     font-weight: bold;
-    padding-left: 65px;
+    padding-left: 45%;
     font-size: 1.5em;
 }
 
 h3.workoutSet {
-    float:right;
-    text-align: left;
-    width: 100px;
+    
+    text-align: center;
+    width: 200px;
     font-weight: bold;
-    padding-right: 40px;
+    padding-left: 45%;
     font-size: 1.5em;
 }
 
 h3.workoutReps {
-    float:left;
+    
+    text-align: center;
     width: 200px;
     font-weight: bold;
-    padding-left: 65px;
+    padding-left: 45%;
+    font-size: 1.5em;
+}
+
+h3.workoutWeight{
+    text-align: center;
+    width: 200px;
+    font-weight: bold;
+    padding-left: 45%;
     font-size: 1.5em;
 }
 
@@ -308,11 +316,38 @@ h3.workoutReps {
 }
 
 #channelSelect{
-    margin-top: 500px;
+ align-items: center;
+ margin-left: 850px;
+ margin-top: 100px;
+ transition: background-color 0.4s ease;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 80px;
+    margin-left: 580px;
+    font-size: 1.2em;
+    width: 200px;
+    background-color: #40ce80;
+    border-radius: 10px;
+    border-color: #5bdd95;
+    padding: 3px 0px;
+    color: white;
+    text-decoration: none;
+    border: 2px solid black;
 }
 
+#channelSelect:hover{
+    transition: background-color 0.8s ease;
+    background-color: #25fc86;
+    color: black;
+}
+
+
 #messages{
-    margin-top: 50px;
+ text-align: center;
+ margin: 30px;
+ font-size: 24px;
+ padding-right: 200px;
+ padding-bottom: 30px;
 }
 
 #editForm{
@@ -321,4 +356,56 @@ h3.workoutReps {
 
 #editBox{
     margin-top: 50px;
+    margin-left: 700px;
+    padding: 100px;
+    align-items: center;
+    font-size: 24px;
+}
+
+#messageSend{
+    transition: background-color 0.4s ease;
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 14px;
+    margin-left: 800px;
+    font-size: 1.2em;
+    width: 200px;
+    background-color: #40ce80;
+    border-radius: 10px;
+    border-color: #5bdd95;
+    padding: 3px 0px;
+    color: white;
+    text-decoration: none;
+    border: 2px solid black;
+}
+
+#messageSend:hover{
+    transition: background-color 0.8s ease;
+    background-color: #25fc86;
+    color: black;
+}
+
+#premium{
+    transition: background-color 0.4s ease;
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 14px;
+    margin-left: 800px;
+    font-size: 1.2em;
+    width: 200px;
+    background-color: #40ce80;
+    border-radius: 10px;
+    border-color: #5bdd95;
+    padding: 3px 0px;
+    color: white;
+    text-decoration: none;
+    border: 2px solid black;
+}
+
+#premium:hover{
+    transition: background-color 0.8s ease;
+    background-color: #25fc86;
+    color: black;
 }

@@ -32,7 +32,7 @@ const makeWorkout = async (req, res) => {
         setDefaultsOnInsert: true,
       },
     );
-    return res.status(201).json({message: 'Success'});
+    return res.status(201).json({ message: 'Success' });
   } catch (err) {
     console.log(err);
     if (err.code === 11000) {
