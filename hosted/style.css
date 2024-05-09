@@ -89,8 +89,9 @@ nav:nth-child(1) {
     text-decoration: none;
     border-radius: 10px;
     border: 2px solid black;
-
-    
+    position: relative;
+    top: 35px;
+    right: 40%;
 }
 
 .makeWorkoutSubmit:link, .makeWorkoutSubmit:visited, .makeWorkoutSubmit:hover, .makeWorkoutSubmit:active {
@@ -204,7 +205,7 @@ nav:nth-child(1) {
 #workoutMessage {
     top: 200px;
     width: 250px;
-    height: 200px;
+    height: 100px;
     position: absolute;
     z-index: 200;
     left: 44%;
