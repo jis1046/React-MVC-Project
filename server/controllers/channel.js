@@ -9,13 +9,16 @@ const togglePremium = async (req, res) => {
     if (req.session.account.premium) {
       return res.status(204).send();
     }
-    const doc = await Account.findByIdAndUpdate(
+    const updatedPremium = await Account.findByIdAndUpdate(
       req.session.account._id,
       { premium: !req.session.account.premium },
       { returnDocument: 'after' },
     ).exec();
 
-    req.session.account = Account.toAPI(doc);
+    // Save the premium account
+    await updatedPremium.save();
+
+    req.session.account = Account.toAPI(updatedPremium);
 
     return res.status(200).json({ premium: req.session.account.premium });
   } catch (err) {

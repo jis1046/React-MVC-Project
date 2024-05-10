@@ -322,7 +322,7 @@ h3.workoutWeight{
     text-align: center;
     margin: 0 auto;
     margin-top: 80px;
-    margin-left: 580px;
+    margin-left: 800px;
     font-size: 1.2em;
     width: 200px;
     background-color: #40ce80;
@@ -347,6 +347,11 @@ h3.workoutWeight{
  font-size: 24px;
  padding-right: 200px;
  padding-bottom: 30px;
+ border: 2px solid black;
+ width: 300px;
+ 
+ position: relative;
+ left: 35%;
 }
 
 #editForm{
@@ -407,4 +412,22 @@ h3.workoutWeight{
     transition: background-color 0.8s ease;
     background-color: #25fc86;
     color: black;
+}
+
+#right-column{
+    background-color:#00823a;
+    position: fixed;
+    top: 58px;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+}
+
+#left-column{
+    background-color:#00823a;
+    position: fixed;
+    top: 58px;
+    bottom: 0;
+    left: 0;
+    width: 300px;
 }
