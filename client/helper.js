@@ -3,8 +3,10 @@
    end in an error.
 */
 const handleError = (message) => {
+  /* Make the message box appear again after closing it by changing display status to block*/
+    document.getElementById('errorMessageBox').style.display = 'block';
     document.getElementById('errorMessage').textContent = message;
-    document.getElementById('workoutMessage').classList.remove('hidden');
+    document.getElementById('errorMessageBox').classList.remove('hidden');
   };
   
   /* Sends post requests to the server using fetch. Will look for various
@@ -19,7 +21,7 @@ const handleError = (message) => {
       body: JSON.stringify(data),
     });
     const result = await response.json();
-    document.getElementById('workoutMessage').classList.add('hidden');
+    document.getElementById('errorMessageBox').classList.add('hidden');
   
     if(result.redirect) {
       window.location = result.redirect;
@@ -35,7 +37,11 @@ const handleError = (message) => {
   };
 
 const hideError = () => {
-    document.getElementById('workoutMessage').classList.add('hidden');
+    document.getElementById('errorMessageBox').classList.add('hidden');
+    /* Close the message box by clicking x icon*/
+    document.getElementById('closeButton').addEventListener('click', function() {
+      document.getElementById('errorMessageBox').style.display = 'none';
+    });
 };
 
 
