@@ -7,6 +7,10 @@ const handleError = (message) => {
     document.getElementById('errorMessageBox').style.display = 'block';
     document.getElementById('errorMessage').textContent = message;
     document.getElementById('errorMessageBox').classList.remove('hidden');
+     /* Close the message box by clicking x icon*/
+     document.getElementById('closeButton').addEventListener('click', function() {
+      document.getElementById('errorMessageBox').style.display = 'none';
+    });
   };
   
   /* Sends post requests to the server using fetch. Will look for various
@@ -38,10 +42,7 @@ const handleError = (message) => {
 
 const hideError = () => {
     document.getElementById('errorMessageBox').classList.add('hidden');
-    /* Close the message box by clicking x icon*/
-    document.getElementById('closeButton').addEventListener('click', function() {
-      document.getElementById('errorMessageBox').style.display = 'none';
-    });
+   
 };
 
 
