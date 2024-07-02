@@ -11,21 +11,34 @@ const ChatApp = () => {
     const [currentChannel, setCurrentChannel] = useState('general');
     const [messageInput, setMessageInput] = useState('');
     const [premium, setPremium] = useState(false);
+    const [socket, setSocket] = useState(null);
 
-    // Establish socket connection
-    const socket = io();
+    
 
     useEffect(() => {
+        // Establish socket connection
+        const newSocket = io();
+        setSocket(newSocket);
+
+        //Clean up socket connection when component is no longer use
+        return () => {
+            newSocket.disconnect();
+        };
+    }, []);
+
+    useEffect(() => {
+        if(socket) {
         // Listen for 'chat message' events
         socket.on('chat message', (msg) => {
             setMessages((prevMessages) => [...prevMessages, msg]);
         });
 
-        return () => {
-            // Clean up event listener
+            return () => {
+            // Clean up event listener when socket changes or unmounts
             socket.off('chat message');
-        };
-    }, []);
+            };
+        }
+    }, [socket]);
 
     const sendMessage = () => {
         if (messageInput.trim() !== '') {
@@ -46,7 +59,7 @@ const ChatApp = () => {
         helper.sendPost('/premium', {premium: true});
         setPremium(true);
         return false;
-    }
+    };
     
 
     return (
